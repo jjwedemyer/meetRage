@@ -11,6 +11,9 @@
    </head>
 
    <body>
+     <div class="container" style="height:40px;">
+     </div
+     </div>
       <?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
 
          <div class = "container">
@@ -53,11 +56,6 @@
 
             <div>
                <a href = "fbconfig.php">Login with Facebook</a>
-            </div>
-
-            <div>
-               <a href = "http://www.tutorialspoint.com"
-                  title = "Login with facebook">More information about Tutorialspoint</a>
             </div>
          </div>
 
