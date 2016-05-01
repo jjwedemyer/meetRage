@@ -1,10 +1,57 @@
-readDB	/Users/jj_wedemeyer/Code/Rage/index.php	/^function readDB($identifier)$/;"	function	line:13
-con	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$con  = mysql_connect($db_host, $db_user, $db_pass);$/;"	variable	line:15
-sql	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$sql = "SELECT * FROM user".$/;"	variable	line:19
-retval	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$retval = mysql_query( $sql, $con );$/;"	variable	line:22
-person	/Users/jj_wedemeyer/Code/Rage/index.php	/^	global $person = new User($retval);$/;"	variable	line:26
-fbav	/Users/jj_wedemeyer/Code/Rage/index.php	/^function fbav($id)$/;"	function	line:29
-request	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$request = new FacebookRequest($/;"	variable	line:31
-response	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$response = $request->execute();$/;"	variable	line:36
-graphObject	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$graphObject = $response->getGraphObject();$/;"	variable	line:37
-pic_url	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$pic_url = $graphObject->getProperty('data')['url'];$/;"	variable	line:38
+User	/Users/jj_wedemeyer/Code/Rage/user.php	/^  class User$/;"	class	line:7
+__construct	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public function __construct($data)$/;"	function	line:10
+uuid	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->uuid         = $data['UUID'];$/;"	variable	line:12
+u_mail	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->u_mail       = setMail($data['mail']);$/;"	variable	line:13
+displayName	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->displayName  = $data['name'];$/;"	variable	line:14
+handle	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->handle       = creHandle($data['name']);$/;"	variable	line:15
+bg	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->bg           = $data['bg'];$/;"	variable	line:16
+fbuname	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->fbuname      = $data['fbuname'];$/;"	variable	line:17
+insta	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->insta        = $data['insta'];$/;"	variable	line:18
+scuname	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->scuname      = $data['scuname'];$/;"	variable	line:19
+sccode	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->sccode       = $data['sccode'];$/;"	variable	line:20
+twhandle	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->twhandle     = $data['twhandle'];$/;"	variable	line:21
+tumbuname	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->tumbuname    = $data['tumbuname'];$/;"	variable	line:22
+perid	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->perid        = $data['perid'];$/;"	variable	line:23
+meerkatid	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->meerkatid    = $data['meerkatid'];$/;"	variable	line:24
+tagline	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $this->tagline      = $data['tagline'];$/;"	variable	line:25
+create	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public static function create()$/;"	function	line:27
+instance	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $instance = new self();$/;"	variable	line:29
+creHandle	/Users/jj_wedemeyer/Code/Rage/user.php	/^    function creHandle($value) \/\/ creates user handle based on RealName.$/;"	function	line:34
+handle	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $handle = strtolower($value);$/;"	variable	line:36
+handle	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $handle = str_replace(' ', '_', $handle);$/;"	variable	line:37
+setMail	/Users/jj_wedemeyer/Code/Rage/user.php	/^    function setMail($mail)$/;"	function	line:41
+setFB	/Users/jj_wedemeyer/Code/Rage/user.php	/^    function setFB($username)$/;"	function	line:51
+writeDB	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public function writeDB()$/;"	function	line:56
+con	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);$/;"	variable	line:58
+date	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $date = time();$/;"	variable	line:62
+sql	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $sql  = "INSERT INTO user".$/;"	variable	line:63
+retval	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $retval = mysql_query( $sql, $con );$/;"	variable	line:67
+checkService	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public function checkService($service)$/;"	function	line:78
+con	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);$/;"	variable	line:80
+sql	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $sql = "SELECT $service FROM user where UUID = $this->uuid";$/;"	variable	line:84
+retval	/Users/jj_wedemeyer/Code/Rage/user.php	/^      $retval = mysql_query( $sql, $con );$/;"	variable	line:86
+uuid	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $uuid        ; \/\/if created with fb == fbuuid otherwise dunno$/;"	variable	line:96
+u_mail	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $u_mail      ; \/\/User email$/;"	variable	line:97
+displayName	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $displayName ; \/\/ Real Name$/;"	variable	line:98
+handle	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $handle      ; \/\/ username...$/;"	variable	line:99
+bg	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $bg          ; \/\/Background pciture$/;"	variable	line:100
+fbuname	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $fbuname     ; \/\/Facebook user name$/;"	variable	line:101
+insta	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $insta       ; \/\/ Instagram handle$/;"	variable	line:102
+scuname	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $scuname     ; \/\/snapchat user name$/;"	variable	line:103
+sccode	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $sccode      ; \/\/snapcope$/;"	variable	line:104
+twhandle	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $twhandle    ; \/\/twitter handle$/;"	variable	line:105
+tumbuname	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $tumbuname   ; \/\/tumblr$/;"	variable	line:106
+perid	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $perid       ; \/\/ periscope$/;"	variable	line:107
+meerkatid	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $meerkatid   ; \/\/meerkat$/;"	variable	line:108
+tagline	/Users/jj_wedemeyer/Code/Rage/user.php	/^    public $tagline     ;$/;"	variable	line:109
+q	/Users/jj_wedemeyer/Code/Rage/index.php	/^$q = $_REQUEST['q'];$/;"	variable	line:14
+person	/Users/jj_wedemeyer/Code/Rage/index.php	/^$person = new User(readDB($q));$/;"	variable	line:15
+readDB	/Users/jj_wedemeyer/Code/Rage/index.php	/^function readDB($identifier)$/;"	function	line:17
+con	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);$/;"	variable	line:19
+sql	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$sql = "SELECT * FROM user".$/;"	variable	line:23
+retval	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$retval = mysql_query( $sql, $con );$/;"	variable	line:26
+fbav	/Users/jj_wedemeyer/Code/Rage/index.php	/^function fbav($id)$/;"	function	line:33
+request	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$request = new FacebookRequest($/;"	variable	line:35
+response	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$response = $request->execute();$/;"	variable	line:40
+graphObject	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$graphObject = $response->getGraphObject();$/;"	variable	line:41
+pic_url	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$pic_url = $graphObject->getProperty('data')['url'];$/;"	variable	line:42

@@ -37,6 +37,7 @@
       $handle = str_replace(' ', '_', $handle);
       return $handle;
     }
+
     function setMail($mail)
     {
       if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
@@ -46,6 +47,7 @@
         return "error";
       }
     }
+
     function setFB($username)
     {
 
@@ -53,7 +55,7 @@
 
     public function writeDB()
     {
-      $con  = mysql_connect($db_host, $db_user, $db_pass);
+      $con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);
       if(! $con ) {
         die('Could not connect: ' . mysql_error());
       }
@@ -72,20 +74,39 @@
       mysql_close($con);
     }
 
-    public $uuid        =; //if created with fb == fbuuid otherwise dunno
-    public $u_mail      =; //User email
-    public $displayName =; // Real Name
-    public $handle      =; // username...
-    public $bg          =; //Background pciture
-    public $fbuname     =; //Facebook user name
-    public $insta       =; // Instagram handle
-    public $scuname     =; //snapchat user name
-    public $sccode      =; //snapcope
-    public $twhandle     =; //twitter handle
-    public $tumbuname   =; //tumblr
-    public $perid       =; // periscope
-    public $meerkatid   =; //meerkat
-    public $tagline     =;
+
+    public function checkService($service)
+    {
+      $con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);
+      if(! $con ) {
+        die('Could not connect: ' . mysql_error());
+      }
+      $sql = "SELECT $service FROM user where UUID = $this->uuid";
+      mysql_select_db('rage');
+      $retval = mysql_query( $sql, $con );
+      if(! $retval ) {
+        die('Could not enter data: ' . mysql_error());
+      }
+      if(isempty($retval)) {
+        return FALSE;
+      }
+      return TRUE;
+    }
+
+    public $uuid        ; //if created with fb == fbuuid otherwise dunno
+    public $u_mail      ; //User email
+    public $displayName ; // Real Name
+    public $handle      ; // username...
+    public $bg          ; //Background pciture
+    public $fbuname     ; //Facebook user name
+    public $insta       ; // Instagram handle
+    public $scuname     ; //snapchat user name
+    public $sccode      ; //snapcope
+    public $twhandle    ; //twitter handle
+    public $tumbuname   ; //tumblr
+    public $perid       ; // periscope
+    public $meerkatid   ; //meerkat
+    public $tagline     ;
 
   }
 

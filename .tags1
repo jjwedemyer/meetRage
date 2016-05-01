@@ -4,13 +4,14 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-readDB	/Users/jj_wedemeyer/Code/Rage/index.php	/^function readDB($identifier)$/;"	function	line:13
-con	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$con  = mysql_connect($db_host, $db_user, $db_pass);$/;"	variable	line:15
-sql	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$sql = "SELECT * FROM user".$/;"	variable	line:19
-retval	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$retval = mysql_query( $sql, $con );$/;"	variable	line:22
-person	/Users/jj_wedemeyer/Code/Rage/index.php	/^	global $person = new User($retval);$/;"	variable	line:26
-fbav	/Users/jj_wedemeyer/Code/Rage/index.php	/^function fbav($id)$/;"	function	line:29
-request	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$request = new FacebookRequest($/;"	variable	line:31
-response	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$response = $request->execute();$/;"	variable	line:36
-graphObject	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$graphObject = $response->getGraphObject();$/;"	variable	line:37
-pic_url	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$pic_url = $graphObject->getProperty('data')['url'];$/;"	variable	line:38
+q	/Users/jj_wedemeyer/Code/Rage/index.php	/^$q = $_REQUEST['q'];$/;"	variable	line:14
+person	/Users/jj_wedemeyer/Code/Rage/index.php	/^$person = new User(readDB($q));$/;"	variable	line:15
+readDB	/Users/jj_wedemeyer/Code/Rage/index.php	/^function readDB($identifier)$/;"	function	line:17
+con	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);$/;"	variable	line:19
+sql	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$sql = "SELECT * FROM user".$/;"	variable	line:23
+retval	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$retval = mysql_query( $sql, $con );$/;"	variable	line:26
+fbav	/Users/jj_wedemeyer/Code/Rage/index.php	/^function fbav($id)$/;"	function	line:33
+request	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$request = new FacebookRequest($/;"	variable	line:35
+response	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$response = $request->execute();$/;"	variable	line:40
+graphObject	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$graphObject = $response->getGraphObject();$/;"	variable	line:41
+pic_url	/Users/jj_wedemeyer/Code/Rage/index.php	/^	$pic_url = $graphObject->getProperty('data')['url'];$/;"	variable	line:42

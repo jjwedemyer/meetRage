@@ -1,30 +1,34 @@
 <!DOCTYPE HTML>
 <!--
-	Identity by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-	modified by Jakob Wedemeyer | jakob-wedemyer.de
+	HTML by
+		Identity by HTML5 UP
+		html5up.net | @n33co
+		Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Scripting by Jakob Wedemeyer | jakob-wedemyer.de
 -->
 <?php
 include 'user.php';
 include 'session.php';
 require 'db_conf.inc.php';
-$person;
+
+$q = $_REQUEST['q'];
+$person = new User(readDB($q));
+
 function readDB($identifier)
 {
-	$con  = mysql_connect($db_host, $db_user, $db_pass);
+	$con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);
 	if(! $con ) {
 		die('Could not connect: ' . mysql_error());
 	}
 	$sql = "SELECT * FROM user".
-					"WHERE UUID== $identifier OR handle == $identifier";
+					"WHERE UUID = $identifier OR handle LIKE $identifier";
 	mysql_select_db('rage');
 	$retval = mysql_query( $sql, $con );
 	if(! $retval ) {
 		die('Could not get data: ' . mysql_error());
 	}
-	global $person = new User($retval);
 	mysql_close($con);
+	return $retval;
 }
 function fbav($id)
 {
@@ -36,7 +40,7 @@ function fbav($id)
 	$response = $request->execute();
 	$graphObject = $response->getGraphObject();
 	$pic_url = $graphObject->getProperty('data')['url'];
-	return $pic_url
+	return $pic_url;
 }
 ?>
 
