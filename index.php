@@ -27,7 +27,6 @@ function readDB($identifier)
 	if(! $retval ) {
 		die("Could not get data: (" . $con->errno.")". $con->error);
 	}
-	$con;
 	return $retval;
 }
 function fbav($id)
