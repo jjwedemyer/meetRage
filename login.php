@@ -1,5 +1,7 @@
 <?php
    session_start();
+
+   $form_content = array('' => , );
 ?>
 <html xmlns:fb = "http://www.facebook.com/2008/fbml">
 

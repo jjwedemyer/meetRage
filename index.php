@@ -11,23 +11,23 @@ include 'user.php';
 include 'session.php';
 require 'db_conf.inc.php';
 
-$q = $_REQUEST['q'];
+$q = mysqli::real_escape_string($_REQUEST['q']);
 $person = new User(readDB($q));
 
 function readDB($identifier)
 {
-	$con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);
-	if(! $con ) {
-		die('Could not connect: ' . mysql_error());
-	}
+	$con  = new mysqli($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_DATABASE);
+	$con->set_charset('utf8');
+	if ($con->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
+}
 	$sql = "SELECT * FROM user".
 					"WHERE UUID = $identifier OR handle LIKE $identifier";
-	mysql_select_db('rage');
-	$retval = mysql_query( $sql, $con );
+	$retval = $con->query($sql);
 	if(! $retval ) {
-		die('Could not get data: ' . mysql_error());
+		die("Could not get data: (" . $con->errno.")". $con->error);
 	}
-	mysql_close($con);
+	$con;
 	return $retval;
 }
 function fbav($id)
