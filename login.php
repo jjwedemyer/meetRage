@@ -1,12 +1,23 @@
 <?php
    session_start();
 
-   $form_content = array('' => , );
+   $form_content = array( 'UUID'  => $_SESSION['FBID'],
+                          'mail' => $_POST['InputEmail'],
+                          'name' => $_SESSION['FULLNAME'],
+                          'bg'   => ,
+                          'fbuname' => $_SESSION['USERNAME'],
+                          'insta' => $_POST['insta'],
+                          'scuname' => $_POST['snapchat'],
+                          'twhandle' => $_POST['twitterhandle'],
+                          'tumbuname' => $_POST['tumblr'],
+                          'perid' => $_POST['perid'],
+                          'meerkat' => $_POST['meerkatid'],
+                          'tagline' => array('1' => $_POST['tagline1'], '2' => $_POST['tagline2']));
 ?>
 <html xmlns:fb = "http://www.facebook.com/2008/fbml">
 
    <head>
-      <title>Login with Facebook</title>
+      <title>Meet RAGE | Login with Facebook</title>
       <link
          href = "http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
          rel = "stylesheet">
@@ -45,8 +56,8 @@
 
                   <form class="" action="login.php" method="post">
                     <div class="form-group">
-                      <label for="InputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="InputEmail1" placeholder="Email">
+                      <label for="InputEmail">Email address</label>
+                      <input type="email" class="form-control" id="InputEmail" placeholder="Email">
                     </div>
                     <div class="form-group">
                       <label for="insta">Instagram Handle(username)</label>
@@ -81,6 +92,20 @@
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
                         <input type="text" class="form-control" id="perid" placeholder="perid">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="meerkat">Meerkat</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" class="form-control" id="meerkat" placeholder="meerkat user">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="tagline">Your tagline(s)</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="tagline1" placeholder="e.g. STRONK CS:GO Playing RUSSIAN">
+                        <input type="text" class="form-control" id="tagline2" placeholder="tagline l. 2">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>

@@ -29,7 +29,7 @@ function readDB($identifier)
 	}
 	return $retval;
 }
-function fbav($id)
+/*function fbav($id)
 {
 	$request = new FacebookRequest(
   	$session,
@@ -40,7 +40,7 @@ function fbav($id)
 	$graphObject = $response->getGraphObject();
 	$pic_url = $graphObject->getProperty('data')['url'];
 	return $pic_url;
-}
+}*/
 ?>
 
 <html>
@@ -75,7 +75,7 @@ function fbav($id)
 						<div class=" av_wrap switched" id="snapped">
 							<img src=<?php echo $person->sccode ?> id="snap_svg"/>
 							<svg xmlns="http://www.w3.org/2000/svg" id="snap_avatar" xmlns:xlink="http://www.w3.org/1999/xlink" width="122" height="122">
-					  		<image xlink:href="<?php echo fbav($person->uuid) ?>" width="122" height="122" clip-path="url(#ghost)"></image>
+					  		<image xlink:href="https://graph.facebook.com/<?php echo $person->uuid ?>/picture" width="122" height="122" clip-path="url(#ghost)"></image>
 							</svg>
 						</div>
 						<div class="av_wrap switched" id="av">

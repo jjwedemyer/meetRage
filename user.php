@@ -21,7 +21,7 @@
       $this->twhandle     = $data['twhandle'];
       $this->tumbuname    = $data['tumbuname'];
       $this->perid        = $data['perid'];
-      $this->meerkatid    = $data['meerkatid'];
+      $this->meerkat    = $data['meerkat'];
       $this->tagline      = $data['tagline'];
     }
     public static function create()
