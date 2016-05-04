@@ -67,16 +67,16 @@
               "ON DUPLICATE KEY UPDATE
                 realname = '$this->displayName',
                 handle   = '$this->handle',
-                mail'    = '$this->mail',
-                bg'      = '$this->bg',
-                fbuname' = '$this->fbuname',
-                insta'   = '$this->insta',
-                scuname' = '$this->scuname',
-                sncode'  = '$this->sncode',
-                twitterhandle' = '$this->twhandle',
-                peris'    = '$this->perid',
-                meerkatid' = '$this->meerkatid',
-                tumblr'   = '$this->tumbuname'
+                mail     = '$this->mail',
+                bg       = '$this->bg',
+                fbuname  = '$this->fbuname',
+                insta    = '$this->insta',
+                scuname  = '$this->scuname',
+                sncode   = '$this->sncode',
+                twitterhandle = '$this->twhandle',
+                peris    = '$this->perid',
+                meerkatid = '$this->meerkatid',
+                tumblr   = '$this->tumbuname'
                 ";
       $retval = $con->query($sql);
       if(! $retval ) {
