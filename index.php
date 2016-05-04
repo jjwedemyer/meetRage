@@ -31,7 +31,7 @@ function readDB($identifier)
 	if(! $retval ) {
 		die("Could not get data: (" . $con->errno.")". $con->error);
 	}
-	$arr = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	$arr = mysqli_fetch_array($retval,MYSQLI_ASSOC);
 	return $arr;
 }
 /*function fbav($id)
