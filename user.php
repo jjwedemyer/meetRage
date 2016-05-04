@@ -10,9 +10,9 @@
     public function __construct($data)
     {
       $this->uuid         = $data['UUID'];
-      $this->u_mail       = setMail($data['mail']);
+      $this->u_mail       = $this->setMail($data['mail']);
       $this->displayName  = $data['name'];
-      $this->handle       = creHandle($data['name']);
+      $this->handle       = $this->creHandle($data['name']);
       $this->bg           = $data['bg'];
       $this->fbuname      = $data['fbuname'];
       $this->insta        = $data['insta'];
