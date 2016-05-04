@@ -44,6 +44,7 @@ if (isset($_POST['InputEmail'])) {
             <div class = "span4">
 
                <ul class = "nav nav-list">
+                  <li class="nav-header"><?php echo var_dump($_SESSION) ?></li>
                   <li class = "nav-header">Image</li>
 
                   <li><img src = "https://graph.facebook.com/<?php
@@ -63,7 +64,7 @@ if (isset($_POST['InputEmail'])) {
                   <form class="" action="login.php" method="post">
                     <div class="form-group">
                       <label for="InputEmail">Email address</label>
-                      <input type="email" class="form-control" id="InputEmail" name="InputEmail"placeholder="Email">
+                      <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email">
                     </div>
                     <div class="form-group">
                       <label for="insta">Instagram Handle(username)</label>
@@ -90,7 +91,7 @@ if (isset($_POST['InputEmail'])) {
                       <label for="website">Website</label>
                       <div class="input-group">
                         <span class="input-group-addon">http</span>
-                        <input type="text" class="form-control" id="website" name="website" placeholder="http://example.com">
+                        <input type="url" class="form-control" id="website" name="website" placeholder="http://example.com">
                       </div>
                     </div>
                     <div class="form-group">
