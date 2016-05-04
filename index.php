@@ -82,7 +82,7 @@ function readDB($identifier)
 							</svg>
 						</div>
 						<div class="av_wrap switched" id="av">
-							<img src="images/avatar.jpg" id="avatar" onmouseover="fade('av');" onmouseleave="fade('av')"/>
+							<img src="https://graph.facebook.com/<?php echo $person->uuid ?>/picture" id="avatar" onmouseover="fade('av');" onmouseleave="fade('av')"/>
 						</div>
 				</div>
 				</span>
