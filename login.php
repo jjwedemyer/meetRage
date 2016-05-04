@@ -24,9 +24,7 @@ if (isset($_POST['InputEmail'])) {
 
    <head>
       <title>Meet RAGE | Login with Facebook</title>
-      <link
-         href = "http://www.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
-         rel = "stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
    </head>
 
    <body>
@@ -47,7 +45,7 @@ if (isset($_POST['InputEmail'])) {
                   <li class = "nav-header">Image</li>
 
                   <li><img src = "https://graph.facebook.com/<?php
-                     echo $_SESSION['FBID']; ?>/picture"></li>
+                     echo $_SESSION['FBID']; ?>/picture" class="img-circle"></li>
 
                   <li class = "nav-header">Facebook ID</li>
                   <li><?php echo  $_SESSION['FBID']; ?></li>
@@ -63,62 +61,62 @@ if (isset($_POST['InputEmail'])) {
                   <form class="" action="login.php" method="post">
                     <div class="form-group">
                       <label for="InputEmail">Email address</label>
-                      <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                      <input type="email" class="form-control" id="InputEmail" name="InputEmail"placeholder="Email">
                     </div>
                     <div class="form-group">
                       <label for="insta">Instagram Handle(username)</label>
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="insta" placeholder="jj_wedemeyer">
+                        <input type="text" class="form-control" id="insta" name="insta" placeholder="jj_wedemeyer">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="snapchat">Snapchat</label>
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="snapchat" placeholder="jj_wedemeyer">
+                        <input type="text" class="form-control" id="snapchat" name="snapchat" placeholder="jj_wedemeyer">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="twitterhandle">Twitter Handle</label>
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="twitterhandle" placeholder="jj_wedemyer">
+                        <input type="text" class="form-control" id="twitterhandle" id="twitterhandle" placeholder="jj_wedemyer">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="tumblr">Tumblr</label>
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="tumblr" placeholder="tumblr">
+                        <input type="text" class="form-control" id="tumblr" name="tumblr" placeholder="tumblr">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="perid">Periscope</label>
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="perid" placeholder="perid">
+                        <input type="text" class="form-control" id="perid" name="perid" placeholder="perid">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="meerkat">Meerkat</label>
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="meerkat" placeholder="meerkat user">
+                        <input type="text" class="form-control" id="meerkat" name="meerkat" placeholder="meerkat user">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="bgurl">Background</label>
                       <div class="input-group">
                         <span class="input-group-addon">imgur</span>
-                        <input type="text" class="form-control" id="bgurl" placeholder="http://imgur.com/asdqwe">
+                        <input type="text" class="form-control" id="bgurl" name="bgurl" placeholder="http://imgur.com/asdqwe">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="tagline">Your tagline(s)</label>
                       <div class="input-group">
-                        <input type="text" class="form-control" id="tagline1" placeholder="e.g. STRONK CS:GO Playing RUSSIAN">
-                        <input type="text" class="form-control" id="tagline2" placeholder="tagline l. 2">
+                        <input type="text" class="form-control" id="tagline1" name="tagline1" placeholder="e.g. STRONK CS:GO Playing RUSSIAN">
+                        <input type="text" class="form-control" id="tagline2" name="tagline2" placeholder="tagline l. 2">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
