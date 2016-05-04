@@ -25,7 +25,7 @@ function readDB($identifier)
 		$sql = "SELECT * FROM user WHERE UUID=$identifier";
 	}
 	else {
-		$sql = "SELECT * FROM user WHERE handle LIKE '%$identifier%'";
+		$sql = "SELECT * FROM user WHERE $identifier LIKE CONCAT('%',handle,'%')";
 	}
 	$retval = $con->query($sql);
 	if(! $retval ) {
