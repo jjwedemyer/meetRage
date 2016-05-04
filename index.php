@@ -59,7 +59,6 @@ function readDB($identifier)
 	<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<script src="assets/js/own.js" type="text/javascript"></script>
-	<script src="bower_components/cheet.js/cheet.min.js" type="text/javascript"></script>
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<noscript>
