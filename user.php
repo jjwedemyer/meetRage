@@ -55,23 +55,21 @@
 
     public function writeDB()
     {
-      $con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);
-      if(! $con ) {
-        die('Could not connect: ' . mysql_error());
+      $con  = new mysqli($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_DATABASE);
+      $con->set_charset('utf8');
+    	if ($con->connect_errno) {
+        echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
       }
       $date = time();
       $sql  = "INSERT INTO user".
               "(UUID,realname,handle,mail,bg,fbuname,fbuuid,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,join_date)".
               "VALUES('$this->uuid','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->fbuuid','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname',NOW())";
-      mysql_select_db('rage');
-      $retval = mysql_query( $sql, $con );
+      $retval = $con->query($sql);
       if(! $retval ) {
-        die('Could not enter data: ' . mysql_error());
+        die('Could not enter data: (' . $con->errno.")". $con->error);
       }
 
       echo "Entered data successfully\n";
-
-      mysql_close($con);
     }
 
 

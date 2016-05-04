@@ -4,7 +4,7 @@
    $form_content = array( 'UUID'  => $_SESSION['FBID'],
                           'mail' => $_POST['InputEmail'],
                           'name' => $_SESSION['FULLNAME'],
-                          'bg'   => ,
+                          'bg'   => $_POST['bgurl'],
                           'fbuname' => $_SESSION['USERNAME'],
                           'insta' => $_POST['insta'],
                           'scuname' => $_POST['snapchat'],
@@ -13,6 +13,9 @@
                           'perid' => $_POST['perid'],
                           'meerkat' => $_POST['meerkatid'],
                           'tagline' => array('1' => $_POST['tagline1'], '2' => $_POST['tagline2']));
+
+    $person = new User($form_content);
+    $person->writeDB;
 ?>
 <html xmlns:fb = "http://www.facebook.com/2008/fbml">
 
@@ -99,6 +102,13 @@
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
                         <input type="text" class="form-control" id="meerkat" placeholder="meerkat user">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="bgurl">Background</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">imgur</span>
+                        <input type="text" class="form-control" id="bgurl" placeholder="http://imgur.com/asdqwe">
                       </div>
                     </div>
                     <div class="form-group">
