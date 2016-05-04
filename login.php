@@ -1,6 +1,8 @@
 <?php
    session_start();
-
+   require 'db_conf.inc.php';
+   include 'user.php';
+if (isset($_POST['InputEmail'])) {
    $form_content = array( 'UUID'  => $_SESSION['FBID'],
                           'mail' => $_POST['InputEmail'],
                           'name' => $_SESSION['FULLNAME'],
@@ -15,7 +17,8 @@
                           'tagline' => array('1' => $_POST['tagline1'], '2' => $_POST['tagline2']));
 
     $person = new User($form_content);
-    $person->writeDB;
+    $person->writeDB();
+  }
 ?>
 <html xmlns:fb = "http://www.facebook.com/2008/fbml">
 
@@ -136,7 +139,8 @@
             Not Connected
 
             <div>
-               <a href = "fbconfig.php">Login with Facebook</a>
+              <button type="button" class="btn btn-primary">
+                <a href = "fbconfig.php">Login with Facebook</a></button>
             </div>
          </div>
 

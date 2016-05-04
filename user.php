@@ -62,8 +62,22 @@
       }
       $date = time();
       $sql  = "INSERT INTO user".
-              "(UUID,realname,handle,mail,bg,fbuname,fbuuid,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,join_date)".
-              "VALUES('$this->uuid','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->fbuuid','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname',NOW())";
+              "(UUID,realname,handle,mail,bg,fbuname,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,join_date)".
+              "VALUES('$this->uuid','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname',NOW())
+              ON DUPLICATE KEY UPDATE
+                'realname' = '$this->displayName',
+                'handle' = '$this->handle',
+                'mail'= '$this->mail',
+                'bg' = '$this->bg',
+                'fbuname' = '$this->fbuname',
+                'insta' = '$this->insta',
+                'scuname' = '$this->scuname',
+                'sncode' = '$this->sncode',
+                'twitterhandle' = '$this->twhandle',
+                'peris' = '$this->perid',
+                'meerkatid' = '$this->meerkatid',
+                'tumblr' = '$this->tumbuname'
+                ";
       $retval = $con->query($sql);
       if(! $retval ) {
         die('Could not enter data: (' . $con->errno.")". $con->error);
