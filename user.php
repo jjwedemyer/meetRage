@@ -71,7 +71,7 @@
                 bg       = '$this->bg',
                 fbuname  = '$this->fbuname',
                 insta    = '$this->insta',
-                scuname  = '$this->scuname',
+                snap  = '$this->scuname',
                 sncode   = '$this->sncode',
                 twitterhandle = '$this->twhandle',
                 peris    = '$this->perid',
