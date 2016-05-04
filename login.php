@@ -14,7 +14,9 @@ if (isset($_POST['InputEmail'])) {
                           'tumbuname' => $_POST['tumblr'],
                           'perid' => $_POST['perid'],
                           'meerkat' => $_POST['meerkatid'],
-                          'tagline' => array('1' => $_POST['tagline1'], '2' => $_POST['tagline2']));
+                          'tagline' => array('1' => $_POST['tagline1'],
+                                            '2' => $_POST['tagline2']),
+                          'website' => $_POST['website']);
 
     $person = new User($form_content);
     $person->writeDB();

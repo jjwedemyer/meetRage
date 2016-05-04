@@ -21,8 +21,9 @@
       $this->twhandle     = $data['twhandle'];
       $this->tumbuname    = $data['tumbuname'];
       $this->perid        = $data['perid'];
-      $this->meerkat    = $data['meerkat'];
+      $this->meerkat      = $data['meerkat'];
       $this->tagline      = $data['tagline'];
+      $this->website      = $data['website'];
     }
     public static function create()
     {
@@ -62,8 +63,8 @@
       }
       $date = time();
       $sql  = "INSERT INTO user".
-              "(UUID,realname,handle,mail,bg,fbuname,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,join_date)".
-              "VALUES('$this->uuid','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname',NOW())".
+              "(UUID,realname,handle,mail,bg,fbuname,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,website,join_date)".
+              "VALUES('$this->uuid','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname','$this->website',NOW())".
               "ON DUPLICATE KEY UPDATE
                 realname = '$this->displayName',
                 handle   = '$this->handle',
@@ -76,7 +77,8 @@
                 twitterhandle = '$this->twhandle',
                 peris    = '$this->perid',
                 meerkatid = '$this->meerkatid',
-                tumblr   = '$this->tumbuname'
+                tumblr   = '$this->tumbuname',
+                website  = '$this->website'
                 ";
       $retval = $con->query($sql);
       if(! $retval ) {
@@ -102,6 +104,7 @@
     public $perid       ; // periscope
     public $meerkatid   ; //meerkat
     public $tagline     ;
+    public $website     ;
 
   }
 
