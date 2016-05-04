@@ -55,7 +55,7 @@
 
     public function writeDB()
     {
-      $con  = new mysqli($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_DATABASE);
+      $con  = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
       $con->set_charset('utf8');
     	if ($con->connect_errno) {
         echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
@@ -87,23 +87,6 @@
     }
 
 
-    public function checkService($service)
-    {
-      $con  = mysql_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD);
-      if(! $con ) {
-        die('Could not connect: ' . mysql_error());
-      }
-      $sql = "SELECT $service FROM user where UUID = $this->uuid";
-      mysql_select_db('rage');
-      $retval = mysql_query( $sql, $con );
-      if(! $retval ) {
-        die('Could not enter data: ' . mysql_error());
-      }
-      if(isempty($retval)) {
-        return FALSE;
-      }
-      return TRUE;
-    }
 
     public $uuid        ; //if created with fb == fbuuid otherwise dunno
     public $u_mail      ; //User email

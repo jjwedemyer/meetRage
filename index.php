@@ -16,7 +16,7 @@ $person = new User(readDB($q));
 
 function readDB($identifier)
 {
-	$con  = new mysqli($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_DATABASE);
+	$con  = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 	$con->set_charset('utf8');
 	if ($con->connect_errno) {
     echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
