@@ -32,8 +32,6 @@ function readDB($identifier)
 		die("Could not get data: (" . $con->errno.")". $con->error);
 	}
 	$arr = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	error_log(var_dump($arr), 3, "/var/www/example.com/log/error.log");
-	echo var_dump($arr);
 	return $arr;
 }
 /*function fbav($id)
@@ -70,7 +68,6 @@ function readDB($identifier)
 </head>
 
 <body class="is-loading bg_norm">
-	<?php echo $q ?>
 	<!-- Wrapper -->
 	<div id="wrapper">
 
