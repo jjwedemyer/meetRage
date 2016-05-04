@@ -11,7 +11,7 @@ include 'user.php';
 include 'session.php';
 require 'db_conf.inc.php';
 
-$q = mysqli::real_escape_string($_REQUEST['q']);
+$q = $_REQUEST['q'];
 $person = new User(readDB($q));
 
 function readDB($identifier)
@@ -21,13 +21,20 @@ function readDB($identifier)
 	if ($con->connect_errno) {
     echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
 }
-	$sql = "SELECT * FROM user".
-					"WHERE UUID = $identifier OR handle LIKE $identifier";
+	if (is_numeric($identifier)) {
+		$sql = "SELECT * FROM user WHERE UUID=$identifier";
+	}
+	else {
+		$sql = "SELECT * FROM user WHERE handle LIKE '%$identifier%'";
+	}
 	$retval = $con->query($sql);
 	if(! $retval ) {
 		die("Could not get data: (" . $con->errno.")". $con->error);
 	}
-	return $retval;
+	$arr = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	error_log(var_dump($arr), 3, "/var/www/example.com/log/error.log");
+	echo var_dump($arr);
+	return $arr;
 }
 /*function fbav($id)
 {
@@ -63,7 +70,7 @@ function readDB($identifier)
 </head>
 
 <body class="is-loading bg_norm">
-
+	<?php echo $q ?>
 	<!-- Wrapper -->
 	<div id="wrapper">
 
