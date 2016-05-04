@@ -83,7 +83,14 @@ if (isset($_POST['InputEmail'])) {
                       <label for="twitterhandle">Twitter Handle</label>
                       <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="twitterhandle" id="twitterhandle" placeholder="jj_wedemyer">
+                        <input type="text" class="form-control" id="twitterhandle" name="twitterhandle" placeholder="jj_wedemyer">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="website">Website</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">http</span>
+                        <input type="text" class="form-control" id="website" name="website" placeholder="http://example.com">
                       </div>
                     </div>
                     <div class="form-group">
