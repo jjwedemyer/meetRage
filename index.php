@@ -32,6 +32,7 @@ function readDB($identifier)
 		die("Could not get data: (" . $con->errno.")". $con->error);
 	}
 	$arr = $retval->fetch_array(MYSQLI_ASSOC);
+	echo var_dump($arr);
 	return $arr;
 }
 /*function fbav($id)
