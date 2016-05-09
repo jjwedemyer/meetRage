@@ -64,7 +64,7 @@
       $date = time();
       $sql  = "INSERT INTO user".
               "(UUID,realname,handle,mail,bg,fbuname,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,website,join_date)".
-              "VALUES('$this->uuid','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname','$this->website',NOW())".
+              "VALUES('".(int)$this->uuid."','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname','$this->website',NOW())".
               "ON DUPLICATE KEY UPDATE
                 realname = '$this->displayName',
                 handle   = '$this->handle',
