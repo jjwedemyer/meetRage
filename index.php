@@ -93,7 +93,7 @@ function readDB($identifier)
 			</header>
 			<footer>
 				<ul class="icon_color icons">
-					<li><a href="https://twitter.com/<?php echo $person->twhandle?>" class="fa-twitter link">Twitter</a></li>
+					<li><a href="https://twitter.com/<?php echo $person->twhandle ?>" class="fa-twitter link">Twitter</a></li>
 					<li><a href="https://www.instagram.com/<?php echo $person->insta ?>" class="fa-instagram">Instagram</a></li>
 					<li><a href="<?php echo $person->website?>" class="fa-coffee link">Blog</a></li>
 					<li><a href="https://www.facebook.com/<?php echo $person->fbuname ?>" class="fa-facebook link">Facebook</a></li>
