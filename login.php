@@ -18,7 +18,9 @@ if (isset($_POST['InputEmail'])) {
                                             '2' => $_POST['tagline2']),
                           'website' => $_POST['website']);
 
+    echo "ARRay:".var_dump($form_content);
     $person = new User($form_content);
+    echo "USER:" .var_dump($person);
     $person->writeDB();
   }
 ?>
