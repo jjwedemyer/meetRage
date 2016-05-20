@@ -9,21 +9,21 @@
     //constructor used for creating object always needs array to work
     public function __construct($data)
     {
-      $this->uuid         = $data['UUID'];
+      $this->uuid         = mysqli_real_escape_string($data['UUID']);
       $this->u_mail       = $this->setMail($data['mail']);
-      $this->displayName  = $data['name'];
+      $this->displayName  = mysqli_real_escape_string($data['name']);
       $this->handle       = $this->creHandle($data['name']);
-      $this->bg           = $data['bg'];
-      $this->fbuname      = $data['fbuname'];
-      $this->insta        = $data['insta'];
-      $this->scuname      = $data['scuname'];
-      $this->sccode       = $data['sccode'];
-      $this->twhandle     = $data['twhandle'];
-      $this->tumbuname    = $data['tumbuname'];
-      $this->perid        = $data['perid'];
-      $this->meerkat      = $data['meerkat'];
-      $this->tagline      = $data['tagline'];
-      $this->website      = $data['website'];
+      $this->bg           = mysqli_real_escape_string($data['bg']);
+      $this->fbuname      = mysqli_real_escape_string($data['fbuname']);
+      $this->insta        = mysqli_real_escape_string($data['insta']);
+      $this->scuname      = mysqli_real_escape_string($data['scuname']);
+      $this->sccode       = mysqli_real_escape_string($data['sccode']);
+      $this->twhandle     = mysqli_real_escape_string($data['twhandle']);
+      $this->tumbuname    = mysqli_real_escape_string($data['tumbuname']);
+      $this->perid        = mysqli_real_escape_string($data['perid']);
+      $this->meerkat      = mysqli_real_escape_string($data['meerkat']);
+      $this->tagline      = mysqli_real_escape_string($data['tagline']);
+      $this->website      = mysqli_real_escape_string($data['website']);
     }
     public static function create()
     {
@@ -36,13 +36,13 @@
     {
       $handle = strtolower($value);
       $handle = str_replace(' ', '_', $handle);
-      return $handle;
+      return mysqli_real_escape_string($handle);
     }
 
     function setMail($mail)
     {
       if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        return $mail;
+        return mysqli_real_escape_string($mail);
       }
       else {
         return "error";
@@ -61,7 +61,7 @@
     	if ($con->connect_errno) {
         echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
       }
-      $date = time();
+
       $sql  = "INSERT INTO user".
               "(UUID,realname,handle,mail,bg,fbuname,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,website,join_date)".
               "VALUES('".(int)$this->uuid."','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname','$this->website',NOW())".

@@ -21,11 +21,12 @@ function readDB($identifier)
 	if ($con->connect_errno) {
     echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
 }
-	if (is_numeric($identifier)) {
-		$sql = "SELECT * FROM user WHERE UUID=$identifier";
+	$esc_str = mysqli_real_escape_string($identifier);
+	if (is_numeric($esc_str)) {
+		$sql = "SELECT * FROM user WHERE UUID=$esc_str";
 	}
 	else {
-		$sql = "SELECT * FROM user WHERE handle REGEXP '$identifier'";
+		$sql = "SELECT * FROM user WHERE handle REGEXP '$esc_str'";
 	}
 	$retval = $con->query($sql);
 	if(! $retval ) {
