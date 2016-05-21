@@ -63,8 +63,8 @@
       }
 
       $sql  = "INSERT INTO user".
-              "(UUID,realname,handle,mail,bg,fbuname,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,website,join_date)".
-              "VALUES('".(int)$this->uuid."','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname','$this->website',NOW())".
+              "(UUID,realname,handle,mail,bg,fbuname,insta,snap,sncode,twitterhandle,peris,meerkatid,tumblr,website,tagline1,tagline2,join_date)".
+              "VALUES('".(int)$this->uuid."','$this->displayName','$this->handle','$this->mail','$this->bg','$this->fbuname','$this->insta','$this->scuname','$this->sccode','$this->twhandle','$this->perid','$this->meerkatid','$this->tumbuname','$this->website','$this->tagline[0]','$this->tagline[1]',NOW())".
               "ON DUPLICATE KEY UPDATE
                 realname = '$this->displayName',
                 handle   = '$this->handle',
@@ -78,7 +78,9 @@
                 peris    = '$this->perid',
                 meerkatid = '$this->meerkatid',
                 tumblr   = '$this->tumbuname',
-                website  = '$this->website'
+                website  = '$this->website',
+                tagline1 = '$this->tagline[0]',
+                tagline2 = '$this->tagline[1]'
                 ";
       $retval = $con->query($sql);
       if(! $retval ) {
