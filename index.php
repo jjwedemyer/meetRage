@@ -22,14 +22,14 @@ function readDB($identifier)
 	if ($con->connect_errno) {
     echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
 }
-	$esc_str = mysqli_real_escape_string($identifier);
+	$esc_str = mysqli_real_escape_string($con, $identifier);
 	echo "esc_str: ".$esc_str."\n";
 	if (is_numeric($esc_str)) {
 		$sql = "SELECT * FROM user WHERE UUID=$esc_str";
 	}
 	else {
 		$sql = "SELECT * FROM user WHERE handle REGEXP '$esc_str'";
-		echo "$SQL: ". $sql;
+		echo "'\$SQL': ". $sql;
 	}
 	$retval = $con->query($sql);
 	if(! $retval ) {
