@@ -27,10 +27,11 @@ function readDB($identifier)
 	}
 	else {
 		$sql = "SELECT * FROM user WHERE handle REGEXP '$esc_str'";
+		echo "$SQL: ". $sql;
 	}
 	$retval = $con->query($sql);
 	if(! $retval ) {
-		die("Could not get data: (" . $con->errno.")". $con->error);
+		die("Could not get data: (" . $con->errno."): ". $con->error);
 	}
 	$arr = $retval->fetch_array(MYSQLI_ASSOC);
 	/*echo var_dump($arr);*/
