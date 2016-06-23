@@ -16,12 +16,14 @@ $person = new User(readDB($q));
 
 function readDB($identifier)
 {
+	echo "ID:".$identifier."\n";
 	$con  = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 	$con->set_charset('utf8');
 	if ($con->connect_errno) {
     echo "Failed to connect to MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
 }
 	$esc_str = mysqli_real_escape_string($identifier);
+	echo "esc_str: ".$esc_str."\n";
 	if (is_numeric($esc_str)) {
 		$sql = "SELECT * FROM user WHERE UUID=$esc_str";
 	}
