@@ -33,7 +33,7 @@ function readDB($identifier)
 		die("Could not get data: (" . $con->errno.")". $con->error);
 	}
 	$arr = $retval->fetch_array(MYSQLI_ASSOC);
-	echo var_dump($arr);
+	/*echo var_dump($arr);*/
 	return $arr;
 }
 /*function fbav($id)
@@ -68,7 +68,10 @@ function readDB($identifier)
 	</noscript>
 </head>
 
-<body class="is-loading bg_norm">
+<body class="is-loading bg_norm" style="background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("<? php echo $person->bg?>");
+background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("<? php echo $person->bg?>");
+background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("<? php echo $person->bg?>");
+background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("<? php echo $person->bg?>");">
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -94,7 +97,7 @@ function readDB($identifier)
 			</header>
 			<footer>
 				<ul class="icon_color icons">
-					<li><a href="https://twitter.com/<?php echo $person->twhandle ?>" class="fa-twitter link">Twitter</a></li>
+					<li><a href="https://twitter.com/<?php echo $person->twitterhandle ?>" class="fa-twitter link">Twitter</a></li>
 					<li><a href="https://www.instagram.com/<?php echo $person->insta ?>" class="fa-instagram">Instagram</a></li>
 					<li><a href="<?php echo $person->website?>" class="fa-coffee link">Blog</a></li>
 					<li><a href="https://www.facebook.com/<?php echo $person->fbuname ?>" class="fa-facebook link">Facebook</a></li>

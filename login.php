@@ -46,7 +46,6 @@ if (isset($_POST['InputEmail'])) {
             <div class = "span4">
 
                <ul class = "nav nav-list">
-                  <li class="nav-header"><?php echo var_dump($_SESSION) ?></li>
                   <li class = "nav-header">Image</li>
 
                   <li><img src = "https://graph.facebook.com/<?php

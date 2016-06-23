@@ -18,7 +18,8 @@
       $this->insta        = mysqli_real_escape_string($data['insta']);
       $this->scuname      = mysqli_real_escape_string($data['scuname']);
       $this->sccode       = mysqli_real_escape_string($data['sccode']);
-      $this->twhandle     = mysqli_real_escape_string($data['twhandle']);
+      $this->twhandle     = mysqli_real_escape_string($data['twhandle'] || $data['twitterhandle']);
+      if ($data['twhandle'] == null) $this->twhandle = mysqli_real_escape_string($data['twitterhandle']);
       $this->tumbuname    = mysqli_real_escape_string($data['tumbuname']);
       $this->perid        = mysqli_real_escape_string($data['perid']);
       $this->meerkat      = mysqli_real_escape_string($data['meerkat']);
